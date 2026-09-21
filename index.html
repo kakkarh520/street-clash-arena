@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Street Clash Arena</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header><b>STREET CLASH ARENA</b><span id="status">Offline</span></header>
+  <main>
+    <section id="menu" class="card">
+      <h1>Street Clash Arena</h1>
+      <p>Free browser multiplayer fighting game</p>
+      <input id="name" placeholder="Your fighter name" maxlength="18">
+      <button id="create">Create Online Room</button>
+      <div class="join"><input id="code" placeholder="ROOM CODE" maxlength="5"><button id="join">Join Room</button></div>
+      <button id="ai">Play vs AI</button>
+      <small>Tip: Share the room code with your friend. No paid service required.</small>
+    </section>
+
+    <section id="lobby" class="card hidden">
+      <h2>Room: <span id="roomCode"></span></h2>
+      <p id="lobbyText">Waiting for opponent…</p>
+      <button id="copy">Copy Room Code</button><button id="back">Back</button>
+    </section>
+
+    <section id="game" class="hidden">
+      <div class="hud">
+        <div><span id="p1name">P1</span><div class="bar"><i id="hp1"></i></div></div>
+        <div id="timer">60</div>
+        <div><span id="p2name">P2</span><div class="bar"><i id="hp2"></i></div></div>
+      </div>
+      <canvas id="arena"></canvas>
+      <div class="controls">
+        <div class="dpad"><button data-key="left">◀</button><button data-key="right">▶</button></div>
+        <div class="moves"><button data-act="punch">👊</button><button data-act="kick">🦵</button><button data-act="block">🛡️</button></div>
+      </div>
+      <button id="exit">Exit Match</button>
+    </section>
+  </main>
+</div>
+<script src="/socket.io/socket.io.js"></script><script src="game.js"></script>
+</body></html>
